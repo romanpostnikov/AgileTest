@@ -1,14 +1,15 @@
 package org.test.agileengine;
 
+import org.test.agileengine.exception.ImagesWithDifferentSizeException;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Drawing {
-    public static void highlightDifferenceBetweenImages(File fileImageOne, File fileImageTwo) {
-
+public class ImagesProcessor {
+    public void highlightDifferenceBetweenImages(File fileImageOne, File fileImageTwo) {
         try {
             BufferedImage bufferedImageOne = ImageIO.read(fileImageOne);
             BufferedImage bufferedImageTwo = ImageIO.read(fileImageTwo);
@@ -28,19 +29,11 @@ public class Drawing {
 
             Graphics2D imageOneGraphics = bufferedImageOne.createGraphics();
 
-            //imageOldGraphics.drawOval(x, y, 100, 150);
-            //imageOldGraphics.drawLine(0, 0, 50, 50);
-            //imageOldGraphics.dispose();
-
-
-
-
             for (int i = 0; i < imageOneWidth; i++) {
                 for (int j = 0; j < imageOneHeight; j++) {
-                    if(bufferedImageOne.getRGB(i, j) != bufferedImageTwo.getRGB(i, j)){
+                    if (bufferedImageOne.getRGB(i, j) != bufferedImageTwo.getRGB(i, j)) {
                         bufferedImageOne.setRGB(i, j, 0);
-                        imageOneGraphics.setColor(Color.GREEN);
-                        imageOneGraphics.drawRect();
+                        //imageOneGraphics.drawRect(i, j, 12, 12);
                     }
                 }
                 System.out.println();
@@ -53,4 +46,5 @@ public class Drawing {
         }
 
     }
+
 }

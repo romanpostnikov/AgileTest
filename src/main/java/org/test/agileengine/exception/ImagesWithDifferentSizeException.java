@@ -1,4 +1,4 @@
-package org.test.agileengine;
+package org.test.agileengine.exception;
 
 public class ImagesWithDifferentSizeException extends Exception {
     public ImagesWithDifferentSizeException(){}
