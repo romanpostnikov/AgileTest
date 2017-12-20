@@ -29,15 +29,13 @@ public class ImagesDifferenceGUI extends JFrame {
 
         imageOneChooser.setCurrentDirectory(new java.io.File("."));
         imageTwoChooser.setCurrentDirectory(new java.io.File("."));
-
     }
 
     class ProcessImageDifferencesButtonEventListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            ImagesProcessor processor = new ImagesProcessor();
-            processor.highlightDifferenceBetweenImages(imageOneChooser.getSelectedFile(),
-                    imageTwoChooser.getSelectedFile());
+                ImagesProcessor processor = new ImagesProcessor(imageOneChooser.getSelectedFile(),
+                        imageTwoChooser.getSelectedFile());
         }
     }
 
